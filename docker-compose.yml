@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  grpc_server_python:
+    container_name: grpc-server-python
+    build:
+      context: .
+      dockerfile: ./server-python/Dockerfile
+    ports:
+      - "50051:50051"
+    environment:
+      - EXCHANGE_SERVER_API_KEY=${EXCHANGE_SERVER_API_KEY}
+
+  grpc_client_python:
+    container_name: grpc-client-python
+    build:
+      context: .
+      dockerfile: ./client-python/Dockerfile
+
+  grpc_client_nodejs:
+    container_name: grpc-client-nodejs
+    build:
+      context: .
+      dockerfile: ./client-nodejs/Dockerfile
+

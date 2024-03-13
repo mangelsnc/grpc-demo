@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+service ExchangeService {
+  rpc Exchange(ExchangeRequest) returns (ExchangeResponse);
+}
+
+message ExchangeRequest {
+  Money money = 1;
+  string to_currency = 2;
+}
+
+message ExchangeResponse {
+  Money money = 1;
+  double rate = 2;
+}
+
+message Money {
+  double amount = 1;
+  string currency = 2;
+}
